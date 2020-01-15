@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Stepik IoT</title>
+</head>
+<body>
+
+<div class="container">
+
+    <nav class="mt-5 mb-3"><a href="/">Назад, на главную</a></nav>
+    <h2 class="mb-5 ">{{number_of_videos}} видео по тегу {{tag_name}}</h2>
+    <div class="row">
+
+            <div class="col-md-4">
+                {% for video in videos_for_tag %}
+                <div class="card mb-4" >
+                  <div class="card-body">
+                      <h5 class="card-title"><a href="../../videos/{{video.id}}">{{video.name}}</a></h5>
+                    <p class="card-text"></p>
+                  </div>
+                </div>
+                {% endfor %}
+            </div>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Stepik IoT</title>
+</head>
+<body>
+
+<div class="container">
+	
+	<h1 class="display-1 mt-5"><b>Stepik IoT</b></h1>
+	<h2 class="display-4 mb-4">Портал видео про интернет вещей</h2>
+	<p>Интернет вещей (англ. internet of things, IoT) — концепция вычислительной сети физических предметов («вещей»),
+        оснащённых встроенными технологиями для взаимодействия друг с другом или с внешней средой,
+        рассматривающая организацию таких сетей как явление, способное перестроить экономические и общественные процессы,
+        исключающее из части действий и операций необходимость участия человека</p>
+	
+	<div class="mb-4 mt-5">
+        {% for tag in tags_pick %}
+		<a class="btn btn-outline-primary mb-2 mr-2" href="/tags/{{tag}}" >#{{tag}}</a>
+	    {% endfor %}
+		<!--Еще теги здесь-->
+	   
+	</div>
+
+	<div class="row">
+        {% for playlist_id in playlists_pick.keys() %}
+	    <div class="col-md-4">
+	        <div class="card mb-4" >
+	          <div class="card-body">
+	              <img src="/static/images/{{playlists_pick[playlist_id]["pic"]}}" alt="" class="img-fluid">
+	              <h5 class="card-title mt-3"><a href="playlists/{{playlist_id}}">{{playlists_pick[playlist_id]["title"]}}</a></h5>
+	              <p class="card-text"></p>
+	              <p class="card-text">{{playlists_pick[playlist_id]["videos"]|length}} видео</p>
+	          </div>
+	        </div>
+	    </div>
+        {% endfor %}
+	</div><!--/row -->
+	
+	<hr>
+	
+	<p><a href="/about">Получить информацию о проекте</a></p>
+
+</div><!--/container -->
+
+</body>
+</html>

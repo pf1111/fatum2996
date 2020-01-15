@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Stepik IoT</title>
+</head>
+<body>
+
+<div class="container">
+
+	<div class="row mt-5">
+
+	    <div class="col-8">
+	        <nav class="mb-4">
+	            <a href="/">Назад, на главную</a>
+	        </nav>
+	        <p>Плейлист: {{playlist_name_display}}</p>
+	        <h2 class="mb-5">{{current_video}}</h2>
+	        <iframe width="100%" height="400" src="https://www.youtube.com/embed/{{current_videoid}}" frameborder="0" allow="picture-in-picture" allowfullscreen></iframe>
+
+	    </div>
+
+
+	    <div class="col-3 offset-1">
+	        <p class="mb-4 ">Всего {{videos_from_playlist|length}} видео </p>
+                {% for playlist_video in videos_from_playlist %}
+					<a href="../../../videos/{{playlist_video['id']}}">{{playlist_video["title"]}}</a><br><br>
+                {% endfor %}
+	    </div>
+
+
+    </div><!-- /row -->
+	<div class="row mt-5">
+			<a class="btn btn-outline-primary mb-2 mr-2" href="../../../playlists/{{current_playlist}}/{{next_number}}">Следующее видео</a>
+	</div>
+</div><!-- /container -->
+
+</body>
+</html>
